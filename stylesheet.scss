@@ -1,0 +1,114 @@
+$main-dark-color: rgb(21, 22, 18);
+$dark-dim-color: rgba(6, 3, 10, 0.87);
+*{
+    font-size: 16px;
+    padding: 0px;
+    margin: 0;
+   
+}
+
+.dimmer-container{
+    display: none;
+    position:fixed;
+    left: 0;   
+    top:  0; 
+    z-index: 10;
+    background-color: $dark-dim-color;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    img{
+        @keyframes image-pop {
+            from{
+                transform: scale(0);
+            }
+            to{
+                transform: scale(1);
+            }
+        }
+            animation-name: image-pop;
+            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation-duration: 0.4s;
+            animation-fill-mode: forwards;
+    }
+    
+}
+
+// body{
+//     background-color: transparent;
+    
+// }
+.top-container{
+    // position: absolute;
+    // background-image: url("/images/Dads_Last_Goodbye_For_public_use.png"), url("/images/Dads_Last_Goodbye_For_public_use.png"); 
+    background-image: url("/images/Dads_Last_Goodbye_For_public_use.png");
+    height: 2000px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background-size: 300px, cover;
+    // background-position-y: 0, 0;
+    background-position-y: 0;
+    // background-position-x: left;
+
+}
+
+.pictures-container{
+    display: grid;
+    position:absolute;
+    justify-content: center;
+    width: 100%;
+    // background-color: $main-dark-color;
+    // background-color: rgb(27, 10, 8);
+    background-color:rgb(21, 22, 18);
+    grid-template-columns:  repeat(4, 300px); 
+    // grid-auto-rows: auto;
+    // flex-shrink: 1;
+    margin-left: auto;
+    margin-right: auto;
+    grid-gap: 10px;   
+    padding: 10px;
+    height: fit-content;
+    // filter:opacity(0);
+    // filter:opacity(20%);
+    transition: grid-template-columns 0.2ms ease;
+    div{
+        display: flex;
+        justify-content: center;
+        border-radius: 4px;
+        outline: solid;
+        outline-color: bisque; 
+        background-color: $dark-dim-color;
+        outline-width: 2px;
+        overflow: hidden;
+        width:  300px;        
+        height: 400px;
+        &:hover img{
+                        
+            transform: scale(1.5, 1.5);          
+            filter:brightness(1.2);
+            cursor:pointer;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+        img{
+
+            
+            align-self: center;
+            filter:brightness(1);
+            transition: transform 0.2s, filter 0.5s;
+            object-fit: cover;
+            
+        }
+    }
+}
+
+
+@media screen and (max-width:500px) {
+    .pictures-container{
+        grid-template-columns:  300px;
+    }
+    
+}
